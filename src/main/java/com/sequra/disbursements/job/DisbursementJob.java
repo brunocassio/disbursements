@@ -29,7 +29,7 @@ public class DisbursementJob {
     @Autowired
     private OrderRepository orderRepository;
 
-    @Scheduled(cron = "0 34 23 * * TUE")
+    @Scheduled(cron = "0 0 0 * * MON")
     public void run() {
         List<Order> completedOrders = orderRepository.fetchCompletedOrdersWithoutPagination();
         logger.log(Level.INFO, "Calculating {0} orders ", completedOrders.size());
